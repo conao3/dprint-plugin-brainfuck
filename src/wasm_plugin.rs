@@ -46,7 +46,7 @@ impl PluginHandler<Configuration> for MyPluginHandler {
     diagnostics.extend(get_unknown_property_diagnostics(config));
 
     ResolveConfigurationResult {
-      config: Configuration { ending, line_width },
+      config: Configuration { line_width },
       diagnostics,
     }
   }
