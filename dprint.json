@@ -1,0 +1,16 @@
+{
+  "indentWidth": 2,
+  "rustfmt": {
+    "lineWidth": 160
+  },
+  "includes": ["**/*.{json,md,toml,rs}"],
+  "excludes": [
+    "**/target"
+  ],
+  "plugins": [
+    "https://plugins.dprint.dev/json-0.14.0.wasm",
+    "https://plugins.dprint.dev/markdown-0.12.1.wasm",
+    "https://plugins.dprint.dev/toml-0.5.3.wasm",
+    "https://plugins.dprint.dev/rustfmt-0.6.1.exe-plugin@99b89a0599fd3a63e597e03436862157901f3facae2f0c2fbd0b9f656cdbc2a5"
+  ]
+}
