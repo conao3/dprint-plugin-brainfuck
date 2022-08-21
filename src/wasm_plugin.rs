@@ -1,12 +1,11 @@
-use anyhow::Result;
 use dprint_core::configuration::get_unknown_property_diagnostics;
 use dprint_core::configuration::get_value;
 use dprint_core::configuration::ConfigKeyMap;
-use dprint_core::configuration::ConfigurationDiagnostic;
 use dprint_core::configuration::GlobalConfiguration;
 use dprint_core::configuration::ResolveConfigurationResult;
 use dprint_core::generate_plugin_code;
-use dprint_core::plugins::PluginHandler;
+use dprint_core::plugins::FormatResult;
+use dprint_core::plugins::SyncPluginHandler;
 use dprint_core::plugins::PluginInfo;
 use std::path::Path;
 
@@ -15,13 +14,13 @@ use crate::configuration::Configuration; // import the Configuration from above
 pub struct MyPluginHandler {}
 
 impl MyPluginHandler {
-  fn new() -> Self {
+  const fn new() -> Self {
     MyPluginHandler {}
   }
 }
 
-impl PluginHandler<Configuration> for MyPluginHandler {
-  fn get_plugin_info(&mut self) -> PluginInfo {
+impl SyncPluginHandler<Configuration> for MyPluginHandler {
+  fn plugin_info(&mut self) -> PluginInfo {
     PluginInfo {
       name: env!("CARGO_PKG_NAME").to_string(),
       version: env!("CARGO_PKG_VERSION").to_string(),
@@ -34,7 +33,7 @@ impl PluginHandler<Configuration> for MyPluginHandler {
     }
   }
 
-  fn get_license_text(&mut self) -> String {
+  fn license_text(&mut self) -> String {
     "License text goes here.".to_string()
   }
 
@@ -52,14 +51,15 @@ impl PluginHandler<Configuration> for MyPluginHandler {
     }
   }
 
-  fn format_text(
+  fn format(
     &mut self,
-    file_path: &Path,
-    file_text: &str,
-    config: &Configuration,
-    mut format_with_host: impl FnMut(&Path, String, &ConfigKeyMap) -> Result<String>,
-  ) -> Result<String> {
+    _file_path: &Path,
+    _file_text: &str,
+    _config: &Configuration,
+    _format_with_host: impl FnMut(&Path, String, &ConfigKeyMap) -> FormatResult,
+  ) -> FormatResult {
     // format here
+    Ok(None)
   }
 }
 
