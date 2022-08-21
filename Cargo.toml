@@ -9,3 +9,6 @@ edition = "2021"
 dprint-core = "0.58.3"
 serde = "1.0.144"
 serde_json = "1.0.83"
+
+[lib]
+crate-type = ["lib", "cdylib"]
