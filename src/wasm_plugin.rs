@@ -30,6 +30,7 @@ impl PluginHandler<Configuration> for MyPluginHandler {
       file_names: vec![],
       help_url: "".to_string(),          // fill this in
       config_schema_url: "".to_string(), // leave this empty for now
+      update_url: Some("".to_string()),  // leave this empty for now
     }
   }
 
