@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.104"
-dprint-core = { version = "0.58.3", features = ["wasm"] }
+dprint-core = { version = "0.71.1", features = ["wasm"] }
 serde = { version = "1.0.229", features = ["derive"] }
 serde_json = { version = "1.0", features = ["preserve_order"] }
 
