@@ -32,7 +32,7 @@ impl SyncPluginHandler<Configuration> for MyPluginHandler {
             help_url: "".to_string(),          // fill this in
             config_schema_url: "".to_string(), // leave this empty for now
             update_url: Some("".to_string()),  // leave this empty for now
-            supports_range_formatting: Some(false),
+            supports_range_formatting: false,
         }
     }
 
